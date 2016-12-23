@@ -40,6 +40,7 @@ STATE_DETAILS = {
   State.OK: {'hc-key': 'us-ok', 'senate': 2, 'house': 5},
   State.OR: {'hc-key': 'us-or', 'senate': 2, 'house': 5},
   State.PA: {'hc-key': 'us-pa', 'senate': 2, 'house': 18},
+  State.PR: {'hc-key': 'us-pr', 'senate': 0, 'house': 0},
   State.RI: {'hc-key': 'us-ri', 'senate': 2, 'house': 2},
   State.SC: {'hc-key': 'us-sc', 'senate': 2, 'house': 7},
   State.SD: {'hc-key': 'us-sd', 'senate': 2, 'house': 1},
