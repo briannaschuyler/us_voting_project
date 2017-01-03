@@ -1,0 +1,1 @@
+document.write("Read me from an external script.");

@@ -1,48 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link href="https://www.highcharts.com/highslide/highslide.css" rel="stylesheet" />
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
-        <script type="text/javascript" src="https://code.highcharts.com/highcharts-more.js"></script>
-        <script type="text/javascript" src="https://code.highcharts.com/modules/heatmap.js"></script>
-        <script type="text/javascript" src="https://code.highcharts.com/modules/exporting.js"></script>
-    </head>
-    <body style="margin:0;padding:0">
-                <div id="container" style="width:650px;height:500px;">Loading....</div>
+$(function(){
+          // Map of Representation By State
+            var geojson = Highcharts.geojson(Highcharts.maps["countries/us/us-all"]);
+        	  Highcharts.setOptions({"lang": {}, "global": {}});
+            var option = {"loading": {}, "subtitle": {}, "title": {"text": "Percent of National Average Electoral College Representation Per Voter"}, "series": {}, "mapNavigation": {"buttonOptions": {"verticalAlign": "bottom"}, "enabled": true}, "labels": {}, "yAxis": {}, "chart": {"width": 650, "renderTo": "map_chart", "height": 500}, "tooltip": {}, "plotOptions": {}, "credits": {"enabled": false}, "colors": {}, "xAxis": {}, "exporting": {}, "drilldown": {}, "navigation": {}, "legend": {}, "colorAxis": {"minColor": "#FFFFFF", "maxColor": "#BC0AD1", "type": "linear"}};
+            var data = [{"name": "Population", "type": "map", "dataLabels": {"enabled": true, "format": "{point.properties.postal}"}, "states": {"hover": {"color": "#FFC300"}}, "joinBy": "hc-key", "data": [{"value": 109.0, "hc-key": "us-al"}, {"value": 253.0, "hc-key": "us-ak"}, {"value": 102.0, "hc-key": "us-az"}, {"value": 120.0, "hc-key": "us-ar"}, {"value": 87.0, "hc-key": "us-ca"}, {"value": 104.0, "hc-key": "us-co"}, {"value": 112.0, "hc-key": "us-ct"}, {"value": 191.0, "hc-key": "us-de"}, {"value": 264.0, "hc-key": "us-dc"}, {"value": 86.0, "hc-key": "us-fl"}, {"value": 98.0, "hc-key": "us-ga"}, {"value": 167.0, "hc-key": "us-hi"}, {"value": 155.0, "hc-key": "us-id"}, {"value": 91.0, "hc-key": "us-il"}, {"value": 100.0, "hc-key": "us-in"}, {"value": 114.0, "hc-key": "us-ia"}, {"value": 125.0, "hc-key": "us-ks"}, {"value": 106.0, "hc-key": "us-ky"}, {"value": 103.0, "hc-key": "us-la"}, {"value": 167.0, "hc-key": "us-me"}, {"value": 100.0, "hc-key": "us-md"}, {"value": 95.0, "hc-key": "us-ma"}, {"value": 94.0, "hc-key": "us-mi"}, {"value": 110.0, "hc-key": "us-mn"}, {"value": 120.0, "hc-key": "us-ms"}, {"value": 97.0, "hc-key": "us-mo"}, {"value": 173.0, "hc-key": "us-mt"}, {"value": 161.0, "hc-key": "us-ne"}, {"value": 130.0, "hc-key": "us-nv"}, {"value": 171.0, "hc-key": "us-nh"}, {"value": 92.0, "hc-key": "us-nj"}, {"value": 143.0, "hc-key": "us-nm"}, {"value": 85.0, "hc-key": "us-ny"}, {"value": 91.0, "hc-key": "us-nc"}, {"value": 253.0, "hc-key": "us-nd"}, {"value": 90.0, "hc-key": "us-oh"}, {"value": 109.0, "hc-key": "us-ok"}, {"value": 104.0, "hc-key": "us-or"}, {"value": 89.0, "hc-key": "us-pa"}, {"value": 213.0, "hc-key": "us-ri"}, {"value": 112.0, "hc-key": "us-sc"}, {"value": 217.0, "hc-key": "us-sd"}, {"value": 100.0, "hc-key": "us-tn"}, {"value": 92.0, "hc-key": "us-tx"}, {"value": 140.0, "hc-key": "us-ut"}, {"value": 267.0, "hc-key": "us-vt"}, {"value": 93.0, "hc-key": "us-va"}, {"value": 103.0, "hc-key": "us-wa"}, {"value": 151.0, "hc-key": "us-wv"}, {"value": 101.0, "hc-key": "us-wi"}, {"value": 309.0, "hc-key": "us-wy"}], "mapData": geojson}];
+    	      option.series = data;
+            var chart = new Highcharts.Map(option);
 
-
-    <script>
-        $(function(){
-
-
- 
-
-
-
-
-            Highcharts.setOptions({"lang": {}, "global": {}});
-            var option = {"loading": {}, "subtitle": {}, "xAxis": {"title": {"text": "Percent of White Eligible Voters in State"}}, "title": {"text": "Electoral College Representation By % White and Ave Age"}, "series": {}, "labels": {}, "yAxis": {"title": {"text": "Average Age of White Eligible Voters"}}, "chart": {"width": 650, "renderTo": "container", "height": 500}, "tooltip": {}, "plotOptions": {}, "credits": {"enabled": false}, "colors": {}, "pane": {}, "exporting": {}, "drilldown": {}, "navigation": {}, "legend": {}};
-
-
+          // Scatter of Representation with Age and Race by State
+            var option = {"loading": {}, "subtitle": {}, "xAxis": {"title": {"text": "Percent of White Eligible Voters in State"}}, "title": {"text": "Voter Representation By Race and Average Age Per State"}, "series": {}, "labels": {}, "yAxis": {"title": {"text": "Average Age of White Eligible Voters"}}, "chart": {"width": 650, "renderTo": "scatter_chart", "height": 500}, "tooltip": {}, "plotOptions": {}, "credits": {"enabled": false}, "colors": {}, "pane": {}, "exporting": {}, "drilldown": {}, "navigation": {}, "legend": {}};
             var data = [{"name": "Electoral College Over/Under-Representation", "type": "bubble", "data": [{"color": "rgba(223, 83, 83, .5)", "name": "AL", "y": 46.799999999999997, "x": 0.69399999999999995, "z": 109.0}, {"color": "rgba(223, 83, 83, .5)", "name": "AK", "y": 43.700000000000003, "x": 0.68300000000000005, "z": 253.0}, {"color": "rgba(223, 83, 83, .5)", "name": "AZ", "y": 46.5, "x": 0.63400000000000001, "z": 102.0}, {"color": "rgba(223, 83, 83, .5)", "name": "AR", "y": 47.100000000000001, "x": 0.77500000000000002, "z": 120.0}, {"color": "rgba(119, 152, 191, .5)", "name": "CA", "y": 45.100000000000001, "x": 0.44400000000000001, "z": 87.0}, {"color": "rgba(119, 152, 191, .5)", "name": "CO", "y": 45.299999999999997, "x": 0.73899999999999999, "z": 104.0}, {"color": "rgba(119, 152, 191, .5)", "name": "CT", "y": 47.700000000000003, "x": 0.74199999999999999, "z": 112.0}, {"color": "rgba(119, 152, 191, .5)", "name": "DE", "y": 47.100000000000001, "x": 0.68999999999999995, "z": 191.0}, {"color": "rgba(119, 152, 191, .5)", "name": "DC", "y": 42.600000000000001, "x": 0.38300000000000001, "z": 264.0}, {"color": "rgba(223, 83, 83, .5)", "name": "FL", "y": 48.600000000000001, "x": 0.61199999999999999, "z": 86.0}, {"color": "rgba(223, 83, 83, .5)", "name": "GA", "y": 44.899999999999999, "x": 0.58999999999999997, "z": 98.0}, {"color": "rgba(119, 152, 191, .5)", "name": "HI", "y": 47.200000000000003, "x": 0.255, "z": 167.0}, {"color": "rgba(223, 83, 83, .5)", "name": "ID", "y": 46.100000000000001, "x": 0.86699999999999999, "z": 155.0}, {"color": "rgba(119, 152, 191, .5)", "name": "IL", "y": 46.100000000000001, "x": 0.67100000000000004, "z": 91.0}, {"color": "rgba(223, 83, 83, .5)", "name": "IN", "y": 46.5, "x": 0.83999999999999997, "z": 100.0}, {"color": "rgba(223, 83, 83, .5)", "name": "IA", "y": 47.600000000000001, "x": 0.90900000000000003, "z": 114.0}, {"color": "rgba(223, 83, 83, .5)", "name": "KS", "y": 46.5, "x": 0.81499999999999995, "z": 125.0}, {"color": "rgba(223, 83, 83, .5)", "name": "KY", "y": 46.700000000000003, "x": 0.88, "z": 106.0}, {"color": "rgba(223, 83, 83, .5)", "name": "LA", "y": 45.799999999999997, "x": 0.629, "z": 103.0}, {"color": "rgba(119, 152, 191, .5)", "name": "ME", "y": 48.899999999999999, "x": 0.95599999999999996, "z": 167.0}, {"color": "rgba(119, 152, 191, .5)", "name": "MD", "y": 46.200000000000003, "x": 0.57199999999999995, "z": 100.0}, {"color": "rgba(119, 152, 191, .5)", "name": "MA", "y": 46.799999999999997, "x": 0.78600000000000003, "z": 95.0}, {"color": "rgba(223, 83, 83, .5)", "name": "MI", "y": 47.299999999999997, "x": 0.79100000000000004, "z": 94.0}, {"color": "rgba(119, 152, 191, .5)", "name": "MN", "y": 46.600000000000001, "x": 0.86099999999999999, "z": 110.0}, {"color": "rgba(223, 83, 83, .5)", "name": "MS", "y": 46.200000000000003, "x": 0.60999999999999999, "z": 120.0}, {"color": "rgba(223, 83, 83, .5)", "name": "MO", "y": 47.0, "x": 0.82999999999999996, "z": 97.0}, {"color": "rgba(223, 83, 83, .5)", "name": "MT", "y": 47.899999999999999, "x": 0.90000000000000002, "z": 173.0}, {"color": "rgba(223, 83, 83, .5)", "name": "NE", "y": 46.700000000000003, "x": 0.85399999999999998, "z": 161.0}, {"color": "rgba(119, 152, 191, .5)", "name": "NV", "y": 45.700000000000003, "x": 0.58899999999999997, "z": 130.0}, {"color": "rgba(119, 152, 191, .5)", "name": "NH", "y": 47.600000000000001, "x": 0.93600000000000005, "z": 171.0}, {"color": "rgba(119, 152, 191, .5)", "name": "NJ", "y": 47.200000000000003, "x": 0.61699999999999999, "z": 92.0}, {"color": "rgba(119, 152, 191, .5)", "name": "NM", "y": 46.700000000000003, "x": 0.45300000000000001, "z": 143.0}, {"color": "rgba(119, 152, 191, .5)", "name": "NY", "y": 46.399999999999999, "x": 0.60399999999999998, "z": 85.0}, {"color": "rgba(223, 83, 83, .5)", "name": "NC", "y": 46.299999999999997, "x": 0.68400000000000005, "z": 91.0}, {"color": "rgba(223, 83, 83, .5)", "name": "ND", "y": 46.600000000000001, "x": 0.91000000000000003, "z": 253.0}, {"color": "rgba(223, 83, 83, .5)", "name": "OH", "y": 47.399999999999999, "x": 0.83199999999999996, "z": 90.0}, {"color": "rgba(223, 83, 83, .5)", "name": "OK", "y": 46.399999999999999, "x": 0.72799999999999998, "z": 109.0}, {"color": "rgba(119, 152, 191, .5)", "name": "OR", "y": 47.100000000000001, "x": 0.82099999999999995, "z": 104.0}, {"color": "rgba(223, 83, 83, .5)", "name": "PA", "y": 48.0, "x": 0.81799999999999995, "z": 89.0}, {"color": "rgba(119, 152, 191, .5)", "name": "RI", "y": 47.0, "x": 0.79800000000000004, "z": 213.0}, {"color": "rgba(223, 83, 83, .5)", "name": "SC", "y": 46.600000000000001, "x": 0.66700000000000004, "z": 112.0}, {"color": "rgba(223, 83, 83, .5)", "name": "SD", "y": 47.299999999999997, "x": 0.878, "z": 217.0}, {"color": "rgba(223, 83, 83, .5)", "name": "TN", "y": 46.700000000000003, "x": 0.78100000000000003, "z": 100.0}, {"color": "rgba(223, 83, 83, .5)", "name": "TX", "y": 44.5, "x": 0.496, "z": 92.0}, {"color": "rgba(223, 83, 83, .5)", "name": "UT", "y": 42.700000000000003, "x": 0.82599999999999996, "z": 140.0}, {"color": "rgba(119, 152, 191, .5)", "name": "VT", "y": 47.799999999999997, "x": 0.95199999999999996, "z": 267.0}, {"color": "rgba(119, 152, 191, .5)", "name": "VA", "y": 45.899999999999999, "x": 0.67200000000000004, "z": 93.0}, {"color": "rgba(119, 152, 191, .5)", "name": "WA", "y": 46.100000000000001, "x": 0.76100000000000001, "z": 103.0}, {"color": "rgba(223, 83, 83, .5)", "name": "WV", "y": 48.5, "x": 0.93899999999999995, "z": 151.0}, {"color": "rgba(223, 83, 83, .5)", "name": "WI", "y": 47.100000000000001, "x": 0.86299999999999999, "z": 101.0}, {"color": "rgba(223, 83, 83, .5)", "name": "WY", "y": 46.299999999999997, "x": 0.879, "z": 309.0}], "dataLabels": {"enabled": true, "format": "{point.name}"}}];
             option.series = data;
-
- 
-
             var chart = new Highcharts.Chart(option);
 
-
-
-
-
- 
-
-
-        
-    });
-        </script>
-
-    </body>
-</html>
+        });
+</script>
